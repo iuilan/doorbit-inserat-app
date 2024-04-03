@@ -12,8 +12,8 @@
               {{ inserat.title_image }}
               
             </v-card-title>
-         {{ getImage('../assets/title-images/'+inserat.title_image) }}
-                <v-img :src="getImage('../assets/title-images/'+inserat.title_image) "
+         {{ getImage('../public/title-images/'+inserat.title_image) }}
+                <v-img :src="getImage('../public/title-images/'+inserat.title_image)"
                 :alt="`Titelbild`" cover height="200px">
                 </v-img>
                 <v-card-title primary-title>
@@ -65,7 +65,7 @@ data.forEach((inserat: Inserat) => {
 
 
 function getImage(imgPath: string) {
-      return imgPath ?new URL(imgPath, import.meta.url).href: ""
+      return imgPath ? new URL(imgPath, import.meta.url).href : ""
     }
 </script>
 
