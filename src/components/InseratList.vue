@@ -12,8 +12,8 @@
               {{ inserat.title_image }}
               
             </v-card-title>
-         {{ getImage('../public/title-images/'+inserat.title_image) }}
-                <v-img :src="getImage('../public/title-images/'+inserat.title_image)"
+         {{ getImage('/title-images/'+inserat.title_image) }}
+                <v-img :src="getImage('/title-images/'+inserat.title_image)"
                 :alt="`Titelbild`" cover height="200px">
                 </v-img>
                 <v-card-title primary-title>
@@ -67,6 +67,10 @@ data.forEach((inserat: Inserat) => {
 function getImage(imgPath: string) {
       return imgPath ? new URL(imgPath, import.meta.url).href : ""
     }
+
+  //   const getImageUrl = async () => {       
+  //   url.value = (await import(/* @vite-ignore */`../assets/images/${dynamicValue.value}.png`)).default
+  // }
 </script>
 
 <style lang="scss" scoped></style>
