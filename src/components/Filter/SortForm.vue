@@ -1,49 +1,49 @@
 <template>
-    <div>
-
-        <v-select
+  <div>
     
-      :items="items"
+    <v-select
+      v-model="selectedSort"
+      :items="sortTypes"
       label="Sortieren nach"
-      v-model="sortBy"
-    >
-      <!-- <template v-slot:prepend-item>
-        <v-list-item title="Alle auswählen" @click="toggle"> </v-list-item>
+      filled
+    ></v-select>
+    <!--v-btn round color="primary" @click="changeDirection()"><span v-if="asc">aufsteigend</span><span v-else>absteigend</span></v-btn-->
 
-        <v-divider class="mt-2"></v-divider>
-      </template> -->
-    </v-select>
-
-    <v-btn round color="primary" dark @click="changeDirection()" >^</v-btn>
- 
-
-    </div>
+    <v-radio-group v-model="asc" @click="$emit('sortDir', asc)">
+      <v-radio label="aufsteigend" :value="true"></v-radio>
+      <v-radio label="absteigend" :value="false"></v-radio>
+    </v-radio-group>
+   {{ selectedSort }}
+  </div>
 </template>
 
-<script setup lang="ts">
+<script setup>
 import { ref } from "vue";
 
 const props = defineProps({
-  items: {
+  sortTypes: {
     type: Array,
   },
 });
 
-const sortBy = ref()
+const asc=ref(true)
+const selectedSort =ref('')
 
-const asc = ref(true)
 
-const emit = defineEmits(["sort","direction"]);
 
-function changeDirection(){
-    asc.value = !asc.value;
-    emit("direction",asc)
-}
+const emit = defineEmits(["sortBy","sortDir"]);
+watch(selectedSort, (newVal) => {
+  emit("sortBy", selectedSort.value);
+});
+
+// function changeDirection(){
+//  asc.value=!asc.value
+//  emit("sortDir", asc.value);
+
+// }
 
 
 
 </script>
 
-<style scoped>
-
-</style>
+<style scoped></style>

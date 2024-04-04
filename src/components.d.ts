@@ -11,6 +11,7 @@ declare module 'vue' {
     CityForm: typeof import('./components/Filter/CityForm.vue')['default']
     copy: typeof import('./components/Filter/RoomsForm copy.vue')['default']
     HelloWorld: typeof import('./components/HelloWorld.vue')['default']
+    InseratCard: typeof import('./components/InseratCard.vue')['default']
     InseratFilter: typeof import('./components/InseratFilter.vue')['default']
     InseratList: typeof import('./components/InseratList.vue')['default']
     PriceForm: typeof import('./components/Filter/PriceForm.vue')['default']
