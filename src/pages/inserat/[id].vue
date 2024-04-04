@@ -2,9 +2,15 @@ import { useRoute } from "vue-router";
 
 <template>
     <div>
-INSERAT 
+        <v-card>
+            <v-container grid-list-xl>
+                {{ inserat.title }}
+        </v-container>
+        </v-card>
+      
 
-{{ inserat }}
+
+
     </div>
 </template>
 

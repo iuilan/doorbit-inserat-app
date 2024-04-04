@@ -8,10 +8,16 @@ export {}
 declare module 'vue' {
   export interface GlobalComponents {
     AppFooter: typeof import('./components/AppFooter.vue')['default']
+    CityForm: typeof import('./components/Filter/CityForm.vue')['default']
+    copy: typeof import('./components/Filter/RoomsForm copy.vue')['default']
     HelloWorld: typeof import('./components/HelloWorld.vue')['default']
     InseratFilter: typeof import('./components/InseratFilter.vue')['default']
     InseratList: typeof import('./components/InseratList.vue')['default']
+    PriceForm: typeof import('./components/Filter/PriceForm.vue')['default']
+    RoomsForm: typeof import('./components/Filter/RoomsForm.vue')['default']
     RouterLink: typeof import('vue-router')['RouterLink']
     RouterView: typeof import('vue-router')['RouterView']
+    SearchForm: typeof import('./components/Filter/SearchForm.vue')['default']
+    SortForm: typeof import('./components/Filter/SortForm.vue')['default']
   }
 }
