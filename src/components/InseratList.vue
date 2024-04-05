@@ -1,21 +1,20 @@
 <template>
   <div>
     <v-container >
-   <v-row class="ma-6">
-    <v-col>
+   <v-row class="ma-6 d-flex flex-wrap flex-md-nowrap ga-2" >
+    
       <select-form
         :items="allCities"
         @selected="handleCityFilter"
         title="Städte"
       ></select-form>
-    </v-col> 
-    <v-col>
+  
       <select-form
         :items="allEnergieClasses"
         @selected="handleEnergyFilter"
         title="Energie-Effizenzklassen"
       ></select-form>
-    </v-col> 
+   
     </v-row>
     <v-row class="ma-6"><v-col> <search-form @search="handleSearch"></search-form></v-col><v-col><sort-form
         :sortTypes="['Datum', 'Preis', 'Wohnfläche', 'Zimmeranzahl']"
