@@ -16,7 +16,7 @@
       ></select-form>
    
     </v-row>
-    <v-row class="ma-6"><v-col> <search-form @search="handleSearch"></search-form></v-col><v-col><sort-form
+    <v-row class="ma-6 d-flex flex-wrap flex-md-nowrap ga-2 "><v-col> <search-form @search="handleSearch"></search-form></v-col><v-col><sort-form
         :sortTypes="['Datum', 'Preis', 'Wohnfläche', 'Zimmeranzahl']"
         @sortBy="handleSortBy"
         @sortAsc="handleSortDirection"
