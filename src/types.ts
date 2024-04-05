@@ -1,6 +1,6 @@
 export interface IInserat {
     id: number;
-    steet: string;
+    street: string;
     city: string;
     postcode: number;
     price_EUR: number;

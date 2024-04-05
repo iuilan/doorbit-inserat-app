@@ -1,13 +1,30 @@
 <template>
   <div>
-    <search-form @search="handleSearch"></search-form>
-    <city-form :cities="allCities" @selected="handleCityFilter"></city-form>
-    <sort-form
-      :sortTypes="['Datum', 'Preis', 'Größe']"
-      @sortBy="handleSortBy"
-      @sortDir="handleSortDirection"
-    ></sort-form>
-    <!-- <sort-form
+    <v-container >
+   <v-row class="ma-6">
+    <v-col>
+      <select-form
+        :items="allCities"
+        @selected="handleCityFilter"
+        title="Städte"
+      ></select-form>
+    </v-col> 
+    <v-col>
+      <select-form
+        :items="allEnergieClasses"
+        @selected="handleEnergyFilter"
+        title="Energie-Effizenzklassen"
+      ></select-form>
+    </v-col> 
+    </v-row>
+    <v-row class="ma-6"><v-col> <search-form @search="handleSearch"></search-form></v-col><v-col><sort-form
+        :sortTypes="['Datum', 'Preis', 'Wohnfläche', 'Zimmeranzahl']"
+        @sortBy="handleSortBy"
+        @sortAsc="handleSortDirection"
+      ></sort-form></v-col></v-row>
+     
+
+      <!-- <sort-form
       :sortTypes="[
            {
           type: 'date',
@@ -28,46 +45,88 @@
         },
       ]"
     ></sort-form> -->
+<div class="text-center">
+      <div v-if="filteredInseratList.length <= 0">Keine Inserate gefunden.</div>
 
-    <div v-for="inserat in filteredInseratList" :key="inserat.id">
-      <v-container grid-list-xs style="padding: ">
-        <v-card grid-list-xs>
-          <v-card-title primary-title>
-            {{ inserat.title }}
-          </v-card-title>
-          <v-container row>
-            <v-img
-              :src="('/title-images/' + inserat.title_image)"
-              :alt="`Titelbild`"
-              cover
-              height="200px"
-              width="50%"
+      <div v-else>
+        Es <span v-if="filteredInseratList.length == 1">wurde</span>
+        <span v-else>wurden</span> <span class="font-weight-bold">{{ filteredInseratList.length }} </span> 
+        <span v-if="filteredInseratList.length == 1"> Inserat</span>
+        <span v-else> Inserate</span> gefunden.
+      </div>
+    </div> <div v-for="inserat in filteredInseratList" :key="inserat.id">
+        <v-card class="ma-6">
+          <div class="d-flex flex-wrap flex-md-nowrap">
+            <v-col
+              style="min-width: 500px"
+             
             >
-            </v-img>
-          </v-container>
+              <v-card-media>
+                <router-link :to="'/inserat/' + inserat.id" target="_blank">
+                  <v-img
+                    :src="'/title-images/' + inserat.title_image"
+                    :alt="`Titelbild`"
+                    cover
+                    height="300px"
+                  
+                  >
+                  </v-img>
+                </router-link>
+              </v-card-media>
+            </v-col>
 
-          <v-contaner>
-            <v-card>
-              <span>Größe:</span><span>{{ inserat.size_m2 }}m²</span>
-              <span>Räume:</span><span>{{ inserat.rooms_amount }}</span>
-              <span>Bäder:</span><span>{{ inserat.baths_amount }}</span>
-              <span>Preis:</span><span>{{ inserat.price_EUR }} €</span>
-            </v-card>
-            <span>Eingestellt am</span>
-            {{
-              new Date(inserat.created_timestamp).toLocaleString("de", {
-                dateStyle: "long",
-              })
-            }}
-            <router-link :to="'/inserat/' + inserat.id">
-              <v-btn style="margin: 10px" color="success"
-                >öffnen</v-btn
-              ></router-link
-            >
-          </v-contaner>
+            <v-col cols="auto" class="flex-fill">
+              <router-link :to="'/inserat/' + inserat.id" target="_blank">
+                <v-card-text class="text-black" style="font-size:large">
+                  {{ inserat.title }}
+                </v-card-text></router-link
+              >
+              <v-card-text>
+                <v-row style="font-size: larger"
+                  ><v-col cols="auto"> <span>Preis:</span> </v-col
+                  ><v-col cols="5">
+                    <span
+                      >{{ inserat.price_EUR.toLocaleString("de") }} €</span
+                    ></v-col
+                  ></v-row
+                >
+                <v-row
+                  ><v-col cols="auto"> <span>Wohnfläche:</span> </v-col
+                  ><v-col cols="5">
+                    <span>{{ inserat.size_m2 }}m²</span></v-col
+                  ></v-row
+                >
+                <v-row
+                  ><v-col cols="auto"> <span>Effizienzklasse:</span> </v-col
+                  ><v-col cols="5">
+                    <span>{{ inserat.energy_efficiency }}</span></v-col
+                  ></v-row
+                >
+                <v-row
+                  ><v-col cols="auto"> <span>Zimmeranzahl:</span> </v-col
+                  ><v-col cols="5">
+                    <span>{{ inserat.rooms_amount }}</span></v-col
+                  ></v-row
+                >
+                <!-- <v-row
+                  ><v-col cols="auto"> <span>Bäder:</span> </v-col
+                  ><v-col cols="5">
+                    <span>{{ inserat.baths_amount }}</span></v-col
+                  ></v-row
+                > -->
+              </v-card-text>
+              <v-card-actions width="100%">
+                <v-btn size="x-large" block elevation="4"
+                  ><router-link :to="'/inserat/' + inserat.id" target="_blank"
+                    >ansehen</router-link
+                  ></v-btn
+                >
+              </v-card-actions>
+            </v-col>
+          </div>
         </v-card>
-      </v-container>
-    </div>
+      </div>
+    </v-container>
   </div>
 </template>
 
@@ -80,8 +139,10 @@ var inseratList: IInserat[] = [];
 
 const searchFilter = ref("");
 const cityFilter = ref<string[]>([]);
+
+const energyFilter = ref<string[]>([]);
 const sorting = ref({
-  by: "date",
+  by: "Datum",
   asc: true,
 });
 
@@ -101,14 +162,30 @@ const allCities = computed(() => {
   return returnList;
 });
 
+// extract energy-efficiencies from data --> composables
+const allEnergieClasses = computed(() => {
+  let returnList: string[] = [];
+  inseratList.forEach((inserat: IInserat) => {
+    if (returnList.indexOf(inserat["energy_efficiency"]) === -1) {
+      returnList.push(inserat["energy_efficiency"]);
+    }
+  });
+  return returnList;
+});
+
 // FILTER INSERATE------------------ COMPUTED
 const filteredInseratList = computed(() => {
   let returnList = inseratList;
 
-  // A T T R I B U T E S | City
+  // A T T R I B U T E S | City, Energy
   if (cityFilter.value.length)
     returnList = returnList.filter((inserat) =>
       cityFilter.value.includes(inserat.city)
+    );
+
+    if (energyFilter.value.length)
+    returnList = returnList.filter((inserat) =>
+    energyFilter.value.includes(inserat.energy_efficiency)
     );
 
   // S E A R C H | title, description, local desription
@@ -139,7 +216,7 @@ const filteredInseratList = computed(() => {
           : b.created_timestamp - a.created_timestamp
       );
       break;
-    case "Größe":
+    case "Wohnfläche":
       returnList.sort((a, b) =>
         asc ? a.size_m2 - b.size_m2 : b.size_m2 - a.size_m2
       );
@@ -147,6 +224,11 @@ const filteredInseratList = computed(() => {
     case "Preis":
       returnList.sort((a, b) =>
         asc ? a.price_EUR - b.price_EUR : b.price_EUR - a.price_EUR
+      );
+      break;
+    case "Zimmeranzahl":
+      returnList.sort((a, b) =>
+        asc ? a.rooms_amount - b.rooms_amount : b.rooms_amount - a.rooms_amount
       );
       break;
     default:
@@ -173,15 +255,21 @@ const handleCityFilter = (city: string[]) => {
   cityFilter.value = city;
 };
 
+const handleEnergyFilter = (energyClass: string[]) => {
+  energyFilter.value = energyClass;
+};
 
-// Get Dynamic ImagePATH
-function getImage(imgPath: string) {
-  return imgPath ? new URL(imgPath, import.meta.url).href : "";
-}
+// // Get Dynamic ImagePATH
+// function getImage(imgPath: string) {
+//   return imgPath ? new URL(imgPath, import.meta.url).href : "";
+// }
 </script>
 
 <style lang="scss" scoped>
 a {
   text-decoration: none;
+  &:hover{
+    text-decoration: underline;
+  }
 }
 </style>

@@ -14,11 +14,13 @@ declare module 'vue' {
     InseratCard: typeof import('./components/InseratCard.vue')['default']
     InseratFilter: typeof import('./components/InseratFilter.vue')['default']
     InseratList: typeof import('./components/InseratList.vue')['default']
+    Navbar: typeof import('./components/Navbar.vue')['default']
     PriceForm: typeof import('./components/Filter/PriceForm.vue')['default']
     RoomsForm: typeof import('./components/Filter/RoomsForm.vue')['default']
     RouterLink: typeof import('vue-router')['RouterLink']
     RouterView: typeof import('vue-router')['RouterView']
     SearchForm: typeof import('./components/Filter/SearchForm.vue')['default']
+    SelectForm: typeof import('./components/Filter/SelectForm.vue')['default']
     SortForm: typeof import('./components/Filter/SortForm.vue')['default']
   }
 }

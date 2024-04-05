@@ -1,19 +1,21 @@
 <template>
   <div>
-    
-    <v-select
+    <v-row>    <v-select
       v-model="selectedSort"
       :items="sortTypes"
       label="Sortieren nach"
-      filled
+      prepend-inner-icon="mdi-sort"
+       
     ></v-select>
     <!--v-btn round color="primary" @click="changeDirection()"><span v-if="asc">aufsteigend</span><span v-else>absteigend</span></v-btn-->
 
-    <v-radio-group v-model="asc" @click="$emit('sortDir', asc)">
-      <v-radio label="aufsteigend" :value="true"></v-radio>
-      <v-radio label="absteigend" :value="false"></v-radio>
+    <v-radio-group v-model="asc">
+      <v-radio label="aufsteigend" @click="$emit('sortAsc', true)" :value="true"></v-radio>
+      <v-radio label="absteigend" @click="$emit('sortAsc', false)" :value="false"></v-radio>
     </v-radio-group>
-   {{ selectedSort }}
+   </v-row>
+    
+
   </div>
 </template>
 
@@ -26,8 +28,8 @@ const props = defineProps({
   },
 });
 
-const asc=ref(true)
-const selectedSort =ref('')
+const asc = ref(true)
+const selectedSort =ref('Datum')
 
 
 

@@ -1,7 +1,7 @@
 [
   {
     "id": 0,
-    "steet": "Hauptstraße 12",
+    "street": "Hauptstraße 12",
     "city": "Musterstadt",
     "postcode": 12345,
     "price_EUR": 450000,
@@ -15,20 +15,20 @@
     "local_description": "In ruhiger Lage im Stadtgebiet, gute Anbindung an öffentliche Verkehrsmittel und Einkaufsmöglichkeiten.",
     "title_image": "title_image0.jpg",
     "images": [
-      "image0",
-      "image1",
+      "image10",
+      "image12",
       "image2",
-      "image3",
+      "image13",
       "image4",
       "image5",
       "image6",
       "image7"
     ],
-    "created_timestamp": 1700017395
+    "created_timestamp": 1660928777955
   },
   {
     "id": 1,
-    "steet": "Birkenweg 7",
+    "street": "Birkenweg 7",
     "city": "Beispieldorf",
     "postcode": 23456,
     "price_EUR": 320000,
@@ -42,7 +42,7 @@
     "local_description": "Zentrale Lage in einem beliebten Wohngebiet, kurze Wege zu Schulen, Kindergärten und Geschäften.",
     "title_image": "title_image1.jpg",
     "images": [
-      "image0",
+      "image8",
       "image1",
       "image2",
       "image3",
@@ -51,11 +51,11 @@
       "image6",
       "image7"
     ],
-    "created_timestamp": 1590950982
+    "created_timestamp": 1660928777955
   },
   {
     "id": 2,
-    "steet": "Lindenallee 22",
+    "street": "Lindenallee 22",
     "city": "Musterstadt",
     "postcode": 12345,
     "price_EUR": 580000,
@@ -69,8 +69,8 @@
     "local_description": "In ruhiger Wohngegend gelegen, aber mit guter Anbindung an die Innenstadt.",
     "title_image": "title_image2.jpg",
     "images": [
-      "image0",
-      "image1",
+      "image19",
+      "image18",
       "image2",
       "image3",
       "image4",
@@ -78,11 +78,11 @@
       "image6",
       "image7"
     ],
-    "created_timestamp": 1617653476
+    "created_timestamp": 1660928777956
   },
   {
     "id": 3,
-    "steet": "Rosenstraße 5a",
+    "street": "Rosenstraße 5a",
     "city": "Beispieldorf",
     "postcode": 23456,
     "price_EUR": 210000,
@@ -96,8 +96,8 @@
     "local_description": "Zentrale Lage in einer neu erschlossenen Wohngegend, gute Infrastruktur in unmittelbarer Nähe.",
     "title_image": "title_image3.jpg",
     "images": [
-      "image0",
-      "image1",
+      "image7",
+      "image14",
       "image2",
       "image3",
       "image4",
@@ -105,11 +105,11 @@
       "image6",
       "image7"
     ],
-    "created_timestamp": 1587982433
+    "created_timestamp": 1760928577957
   },
   {
     "id": 4,
-    "steet": "Kirchplatz 3",
+    "street": "Kirchplatz 3",
     "city": "Musterdorf",
     "postcode": 24625,
     "price_EUR": 720000,
@@ -123,7 +123,7 @@
     "local_description": "In idyllischer Lage inmitten eines malerischen Dorfes, ruhig und naturverbunden.",
     "title_image": "title_image4.jpg",
     "images": [
-      "image0",
+      "image17",
       "image1",
       "image2",
       "image3",
@@ -132,11 +132,11 @@
       "image6",
       "image7"
     ],
-    "created_timestamp": 1646677247
+    "created_timestamp": 1668928777958
   },
   {
     "id": 5,
-    "steet": "Ahornweg 5",
+    "street": "Ahornweg 5",
     "city": "Beispielstadt",
     "postcode": 58946,
     "price_EUR": 370000,
@@ -150,8 +150,8 @@
     "local_description": "In einer beliebten Wohngegend gelegen, gute Infrastruktur und Einkaufsmöglichkeiten in der Nähe.",
     "title_image": "title_image5.jpg",
     "images": [
-      "image0",
-      "image1",
+      "image18",
+      "image10",
       "image2",
       "image3",
       "image4",
@@ -159,11 +159,11 @@
       "image6",
       "image7"
     ],
-    "created_timestamp": 1619152840
+    "created_timestamp": 1660928777959
   },
   {
     "id": 6,
-    "steet": "Marktplatz 8",
+    "street": "Marktplatz 8",
     "city": "Musterstadt",
     "postcode": 12345,
     "price_EUR": 1200000,
@@ -177,8 +177,8 @@
     "local_description": "Zentrale Innenstadtlage, umgeben von Geschäften, Cafés und kulturellen Einrichtungen.",
     "title_image": "title_image6.jpg",
     "images": [
-      "image0",
-      "image1",
+      "image14",
+      "image12",
       "image2",
       "image3",
       "image4",
@@ -186,11 +186,11 @@
       "image6",
       "image7"
     ],
-    "created_timestamp": 1607433624
+    "created_timestamp": 1666928777960
   },
   {
     "id": 7,
-    "steet": "Seeblick 19",
+    "street": "Seeblick 19",
     "city": "Seeparadies",
     "postcode": 65489,
     "price_EUR": 850000,
@@ -204,7 +204,7 @@
     "local_description": "In traumhafter Lage direkt am See, umgeben von Natur und Erholungsgebieten.",
     "title_image": "title_image7.jpg",
     "images": [
-      "image0",
+      "image15",
       "image1",
       "image2",
       "image3",
@@ -213,11 +213,11 @@
       "image6",
       "image7"
     ],
-    "created_timestamp": 1601832537
+    "created_timestamp": 1660928877961
   },
   {
     "id": 8,
-    "steet": "Bahnhofstraße 12",
+    "street": "Bahnhofstraße 12",
     "city": "Beispielstadt",
     "postcode": 58946,
     "price_EUR": 150000,
@@ -231,8 +231,8 @@
     "local_description": "Zentrale Innenstadtlage, alles ist fußläufig erreichbar.",
     "title_image": "title_image8.jpg",
     "images": [
-      "image0",
-      "image1",
+      "image6",
+      "image10",
       "image2",
       "image3",
       "image4",
@@ -240,11 +240,11 @@
       "image6",
       "image7"
     ],
-    "created_timestamp": 1637848090
+    "created_timestamp": 1680928777962
   },
   {
     "id": 9,
-    "steet": "Tannenweg 25",
+    "street": "Tannenweg 25",
     "city": "Beispieldorf",
     "postcode": 23456,
     "price_EUR": 280000,
@@ -258,8 +258,8 @@
     "local_description": "In einer ruhigen Wohngegend am Stadtrand gelegen, aber mit guter Anbindung an die Innenstadt",
     "title_image": "title_image9.jpg",
     "images": [
-      "image0",
-      "image1",
+      "image4",
+      "image11",
       "image2",
       "image3",
       "image4",
@@ -267,6 +267,6 @@
       "image6",
       "image7"
     ],
-    "created_timestamp": 1587942533
+    "created_timestamp": 1780928777963
   }
 ]

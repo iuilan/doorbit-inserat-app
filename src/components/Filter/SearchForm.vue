@@ -2,6 +2,7 @@
   <div>
     <v-form>
       <v-text-field
+      prepend-inner-icon="mdi-magnify"
         name="search"
         label="Suche"
         single-line
